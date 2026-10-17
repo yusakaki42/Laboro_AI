@@ -1,0 +1,8 @@
+.env
+.venv/
+out/
+submissions/
+__pycache__/
+.pytest_cache/
+# イメージに入れないもの。当日はボリュームで /app に見える
+tests/

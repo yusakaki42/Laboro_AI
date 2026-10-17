@@ -1,0 +1,26 @@
+# 鍵を書くファイル。ひな形の .env.example だけ入れる
+.env
+.env.*
+!.env.example
+
+# 当日配る固有QA。リポジトリに入れない
+data/secret_qa.csv
+
+# 実行結果（索引、回答ログ、イメージの予備）
+out/
+submissions/
+*.tar.gz
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# エディタ・OS・Claude Code のローカル状態
+.DS_Store
+.vscode/
+.idea/
+.claude/.cc-writes/
+.claude/settings.local.json

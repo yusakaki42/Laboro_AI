@@ -1,0 +1,17 @@
+services:
+  app:
+    # build で作るイメージの名前。持参したファイルを docker load したときも同じ名前になる
+    image: ${HANDSON_IMAGE:-handson-42tokyo:0.6}
+    # 教室PCはIntel（x86_64）。Apple SiliconのMacで速く試すときは HANDSON_PLATFORM=linux/arm64
+    platform: ${HANDSON_PLATFORM:-linux/amd64}
+    build: .
+    working_dir: /app
+    # 常駐させて、docker compose exec app bash で中に入って使う
+    command: sleep infinity
+    init: true
+    volumes:
+      - .:/app
+    env_file:
+      # 運営がキーなしで試験だけ回すときは HANDSON_ENV_FILE=/dev/null にする
+      - path: ${HANDSON_ENV_FILE:-.env}
+        required: false
